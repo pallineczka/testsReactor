@@ -66,7 +66,7 @@ public class DishWasher {
                         .build();
     }
 
-    private RunResult error(Status errorPump) {
+    RunResult error(Status errorPump) {
         return RunResult.builder()
                         .withStatus(errorPump)
                         .build();
