@@ -66,4 +66,17 @@ public class DishWasherTest {
 
         assertEquals(program.getProgram(), WashingProgram.INTENSIVE);
     }
+
+    @Test
+    public void TestProgramIsNotTabletsUsed(){
+
+        ProgramConfiguration program = ProgramConfiguration.builder()
+                                                           .withProgram(WashingProgram.INTENSIVE)
+                                                           .withTabletsUsed(false)
+                                                           .build();
+        Mockito.when(door.closed()).thenReturn(false);
+        Mockito.when(dirtFilter.capacity()).thenReturn(5.0d);
+
+        assertEquals(program.isTabletsUsed(), false);
+    }
 }
